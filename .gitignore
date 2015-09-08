@@ -1,0 +1,9 @@
+# Untracked files/folders
+
+# Ignore Node Packages + related
+theme/node_modules
+theme/package.json
+theme/gruntfile.js
+
+# Ignore uncompiled Sass files
+theme/css/sass

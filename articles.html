@@ -10,6 +10,11 @@
   <link rel="stylesheet" href="theme/css/style.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
   <script src="theme/js/scripts.js"></script>
+  <!-- Favicons -->
+  <link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="/android-chrome-192x192.png" sizes="192x192">
+  <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96">
+  <link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
 </head>
 <body>
   <div class="overlay"></div>
@@ -20,7 +25,6 @@
       <a class="nav__trigger nav__trigger--social"><span>Social</span><i class="fa fa-angle-down"></i></a>
       <nav role="main" class="nav nav--main hide-mob">
         <ul class="inline">
-          <li><img src="theme/img/logo.png" style="height: 4em;"></li>
           <li><a href="index">Chris</a></li>
           <li class="active"><a href="#">Articles</a></li>
           <li><a href="examples">Examples</a></li>
@@ -34,38 +38,38 @@
           <li><a href="http://reddit.com/u/chriddell"><i class="fa fa-reddit"></i></a></li>
           <li><a href="http://chriddell.tumblr.com"><i class="fa fa-tumblr"></i></a></li>
           <li><a href="http://linkedin.com/u/chrisliddell"><i class="fa fa-linkedin"></i></a></li>
-          <li><a href=""><i class="fa fa-file-text-o"></i></a></li>
+          <li><a href="theme/files/cv/ChrisLiddell_FrontEnd.pdf"><i class="fa fa-file-text-o"></i></a></li>
         </ul>
       </nav>
     </div>
   </header>
 
-  <section class="section--articles">
+  <main id="articles" class="section--articles">
     <div class="container">
       <hgroup class="center">
-        <h1 class="klar">Articles</h1>
-        <h2 class="subtitle">A bunch of stuff I've written.</h2>
+        <h1 class="title klar bold">Articles</h1>
+        <h2 class="subtitle">A collection of things I've written.</h2>
       </hgroup>
 
       <div class="articles__container">
         <div class="articles__year twenty-fifteen">
           <div class="articles__season summer">
             <article class="article">
-              <h3 class="article__title"><a href="">Theming Drupal forms with JS</a></h3>
+              <h3 class="article__title"><a href="blog/theming-drupal-forms-with-js">Theming Drupal forms with JS</a></h3>
               <p class="article__blurb">A simple to implement solution for any newbie Drupal-ers.</p>
               <span class="article__type">Front-end</span>
               <span class="article__date">12 Aug 2015</span>
             </article>
 
             <article class="article">
-              <h3 class="article__title"><a href="">Guerrilla Testing: under-the-bonnet</a></h3>
+              <h3 class="article__title"><a href="blog/guerrilla-testing">Guerrilla Testing: under-the-bonnet</a></h3>
               <p class="article__blurb">A quick, simple guide to the fastest way to test your digital products.</p>
               <span class="article__type">UX</span>
               <span class="article__date">2 Jul 2015</span>
             </article>
 
             <article class="article">
-              <h3 class="article__title"><a href="">Sass architecture: the right way?</a></h3>
+              <h3 class="article__title"><a href="blog/sass-architecture">Sass architecture: the right way?</a></h3>
               <p class="article__blurb">Investigating and developing a Sass folder structure at the beginning of a project can be really therapeutic...</p>
               <span class="article__type">Front-end</span>
               <span class="article__date">4 Jun 2015</span>
@@ -74,7 +78,7 @@
 
           <div class="articles__season spring">
             <article class="article">
-              <h3 class="article__title"><a href="">Using Grunt with Libsass</a></h3>
+              <h3 class="article__title"><a href="blog/using-grunt-with-libsass">Using Grunt with Libsass</a></h3>
               <p class="article__blurb">Hit the ground running with Grunt and LibSass.</p>
               <span class="article__type">Front-end</span>
               <span class="article__date">21 Apr 2015</span>
@@ -84,7 +88,7 @@
       </div>
       
     </div>
-  </section>
+  </main>
   
 </body>
 </html>

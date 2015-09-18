@@ -10,6 +10,11 @@
   <link rel="stylesheet" href="theme/css/style.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
   <script src="theme/js/scripts.js"></script>
+  <!-- Favicons -->
+  <link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="/android-chrome-192x192.png" sizes="192x192">
+  <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96">
+  <link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
 </head>
 <body>
   <div class="overlay"></div>
@@ -21,7 +26,7 @@
       <nav role="main" class="nav nav--main hide-mob">
         <ul class="inline">
           <li class="active"><a href="#">Chris</a></li>
-          <li><a href="articles">Articles</a></li>
+          <li><a href="articles.html">Articles</a></li>
           <li><a href="examples">Examples</a></li>
         </ul>
       </nav>
@@ -33,15 +38,15 @@
           <li><a href="http://reddit.com/u/chriddell"><i class="fa fa-reddit"></i></a></li>
           <li><a href="http://chriddell.tumblr.com"><i class="fa fa-tumblr"></i></a></li>
           <li><a href="http://linkedin.com/u/chrisliddell"><i class="fa fa-linkedin"></i></a></li>
-          <li><a href=""><i class="fa fa-file-text-o"></i></a></li>
+          <li><a href="theme/files/cv/ChrisLiddell_FrontEnd.pdf"><i class="fa fa-file-text-o"></i></a></li>
         </ul>
       </nav>
     </div>
   </header>
 
-  <section class="section--hello">
+  <main id="hello" class="section--hello">
     <div class="container">
-      <h1 class="title"><span class="klar">Front-end developer</span> currently working for <a href="http://curve.agency" class="box-link">Curve</a> in sunny Leeds, UK.</h1>
+      <h1 class="title"><span class="klar">Front-end developer</span> currently working for <a href="http://curve.agency" class="box-link">Curve</a> in Leeds, UK.</h1>
       <p class="subtitle">Front-end development, interface design and prototyping for: </p>
       <ul class="inline nav--clients">
         <li class="client client--relate">Relate</li>
@@ -51,9 +56,13 @@
         <li class="client client--smg">Science Museum Group</li>
       </ul>
       <img src="theme/img/iPhone.png" class="intro__screenshot">
-      <p class="cta--home"><a href="" class="highlight"><i class="fa fa-file-text-o"></i> Download my CV</a></p>
+      <p class="cta--home"><a href="theme/files/cv/ChrisLiddell_FrontEnd.pdf" class="partial-underline"><i class="fa fa-file-text-o"></i> Download my CV</a></p>
     </div>
-  </section>
+  </main>
+
+  <div class="section--made-by">
+
+  </div>
   
 </body>
 </html>

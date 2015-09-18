@@ -1,0 +1,153 @@
+<!doctype html>
+<html>
+
+<!-- HEAD METADATA -->
+
+<head>
+	<meta charset="UTF-8">
+		
+        <!-- Page Title -->
+		<title>Well Fed Films - Film - Live Performance Show Reel</title>
+		
+        <!--Link to Stylesheet(s) -->
+		<link rel="stylesheet" href="../../styles/style.css">
+        
+		<!-- Link to Favicon -->
+		<link href="../media/images/favicon.ico" rel="icon" type="image/x-icon"/>
+
+		<!-- Link to Google Fonts -->
+		<link href='http://fonts.googleapis.com/css?family=Montserrat:400,700|Roboto:100' rel='stylesheet' type='text/css'>
+        
+        <!-- jQuery Library -->
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+        
+        <!-- jQuery -->
+        <script src="../../styles/jquery/page-fade-scroll.js"></script>
+
+        <!-- viewport-width = device-width -->
+        <meta name="viewport" content="initial-scale=1">
+
+</head>
+
+
+
+<!-- BODY START -->
+<body class="one">
+	
+    <!-- NAVIGATION BAR -->
+	<div id="nav-bar">
+    
+    	<!-- LOGO -->
+		<a href="../../index.html" title="Return to the homepage" id="logo">
+        
+  			<img src="../../media/images/logo.png" alt="Well Fed logo" class="fade"/>
+        
+		</a>
+        
+        <!-- NAVIGATION LIST -->
+      	<nav>
+			<ul id="navlist">
+				
+                <li><a href="../film.html" class="current1">Film</a></li>
+				<li><a href="../photography.html">Photography</a></li>
+				<li><a href="../about.html">About</a></li>
+                
+                <!-- SOCIAL MEDIA -->
+                <li class="last">
+                	<a href="http://twitter.com/wellfedfilms">
+                		<img src="../../media/images/twitter-small.png" alt="Link to Well Fed Twitter"/>
+                	</a>
+                    
+                    <a href="mailto:info@wellfedfilms.tv">
+                    	<img src="../../media/images/email-small.png" alt="Link to email Well Fed"/>
+                    </a>
+                    </li>
+				
+			</ul>
+		</nav>
+        
+   	</div>
+
+	<!-- MAIN CONTAINER -->
+	<div id="subpage-container">
+    	
+        <!-- VIDEO/DESCRIPTION WRAPPER -->
+    	<article id="video">
+        
+        	<!-- VIDEO HOLDER -->
+        	<div id="video-holder">
+            
+            	<iframe src="http://player.vimeo.com/video/72422038?title=0&amp;byline=0&amp;portrait=0" width="500" height="281"></iframe>
+            
+            </div>
+            
+            <!-- VIDEO DESCRIPTION -->
+			<div id="video-description">
+            
+            	<h1>Live Performance Show Reel</h1>
+                
+                <p>Our show-reel is a quick taster of the kind of videography we offer.</p>
+                
+                <!-- RETURN TO ALL VIDEOS -->
+                <p class="return">
+                    	<a href="../film.html">
+                    		<img src="../../media/images/arrow.png" alt="Return to Film page"/> 
+                    			Back to all videos
+                    	</a>
+                    </p>
+                
+            </div>
+            
+     	</article>
+    
+    </div>
+    
+    
+    
+    
+	<!-- FOOTER -->
+    <footer>
+    
+    	<ul id="footer">
+        
+        	<li><a href="mailto:info@wellfedfilms.tv">info@wellfedfilms.tv</a></li>
+            <li>Site designed & built by Chris Liddell</li>
+            
+        </ul>
+        
+    </footer>
+    
+    <!-- jQuery for container fade out -->
+    <script type="text/javascript">
+		
+		// delegate all clicks on "a" tag (links)
+		$(document).on("click", "a", function () {
+
+    	// get the href attribute
+    	var newUrl = $(this).attr("href");
+
+    	// veryfy if the new url exists or is a hash
+    	if (!newUrl || newUrl[0] === "#") {
+        
+        location.hash = newUrl;
+        return;
+    	}
+
+    	// now, fadeout the container
+    	$("#subpage-container").fadeOut(function () {
+		
+        // when the animation is complete, set the new location
+        location = newUrl;
+    	});
+
+    	// prevent the default browser behavior.
+    	return false;
+	});
+	
+	</script>
+    
+</body>
+</html>
+    
+    
+<!-- END -->

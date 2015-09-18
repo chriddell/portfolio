@@ -1,0 +1,199 @@
+<!-- DOCTYPE -->
+
+<!doctype html>
+<html>
+
+<!-- HEAD METADATA -->
+
+<head>
+	<meta charset="UTF-8">
+		
+        <!-- Page Title -->
+		<title>Film | Creative Video &amp; Photography | Well Fed Films | Leeds, UK</title>
+		
+        <!--Link to Stylesheet(s) -->
+		<link rel="stylesheet" href="../styles/style.css">
+        
+		<!-- Link to Favicon -->
+		<link href="../media/images/favicon.ico" rel="icon" type="image/x-icon"/>
+
+		<!-- Link to Google Fonts -->
+		<link href='http://fonts.googleapis.com/css?family=Ubuntu:700|Lato:300' rel='stylesheet' type='text/css'>
+        
+        <!-- jQuery Library -->
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+
+        <!-- viewport-width = device-width -->
+        <meta name="viewport" content="initial-scale=1">
+
+</head>
+
+<!-- BODY START -->
+<body>
+	
+    <!-- NAVIGATION BAR -->
+	<div id="nav-bar">
+    
+    	<!-- LOGO -->
+		<a href="../index.html" title="Return to the homepage" id="logo">
+        
+  			<img src="../media/images/logo.png" alt="Well Fed logo" class="fade"/>
+        
+		</a>
+        
+        <!-- NAVIGATION LIST -->
+      	<nav>
+			<ul id="navlist">
+				
+                <li><a href="#" class="current1">Film</a></li>
+				<li><a href="photography.html">Photography</a></li>
+				<li><a href="about.html">About</a></li>
+                <li class="social">
+                	<a href="http://twitter.com/wellfedfilms">
+                		<img src="../media/images/twitter-small.png" alt="Link to Well Fed Twitter"/>
+                	</a>
+                    
+                    <a href="mailto:info@wellfedfilms.tv">
+                    	<img src="../media/images/email-small.png" alt="Link to email Well Fed"/>
+                    </a>
+                    </li>
+				
+			</ul>
+		</nav>
+        
+     </div>
+
+	<!-- MAIN CONTAINER -->
+	<div id="subpage-container">
+    	
+        <!-- FILM INTRO -->
+   		<section id="film">
+        
+    		<h1>Our Work: <span class="highlight-film">Film</span></h1>
+        
+        	<p>We create highly thoughtful and striking film of all kinds. All of our work we carry out with passion and drive. Please take the time to view some of our past projects below.</p>
+            
+            <p>Use the category selector on the right to filter by type.</p>
+        
+        </section>
+        
+        <ul id="film-tags">
+        	<li><a class="btn-all filmtagcurrent">All</a></li>
+            <li><a class="btn-music">Music</a></li>
+            <li><a class="btn-commercial">Commercial</a></li>
+        </ul>
+        
+        <!-- VIDEO LIST -->
+        <div id="film-grid">
+        
+        	<div class="film-grid-item commercial">
+            
+            	<a href="film/sole-heaven-remastered-teaser.html">
+            		<img src="../media/images/film-grid-thumbnails/sole-heaven-remastered-thumbnail.jpg" alt="Link to Sole Heaven Remastered video"/>
+                    
+                    	<h2>Sole Heaven: REMASTERED</h2>
+            	</a>
+                
+            </div>
+            
+            
+            <div class="film-grid-item commercial">
+            
+            	<a href="film/sole-heaven-unijams.html">
+            		<img src="../media/images/film-grid-thumbnails/sole-heaven-unijams-thumbnail.jpg" alt="Link to Sole Heaven Unijams video"/>
+                    	<h2>Sole Heaven: UNIJAMS</h2>
+                </a>
+            
+            </div>
+            
+            
+            <div class="film-grid-item music">
+            
+            	<a href="film/selective-hearing.html">
+            		<img src="../media/images/film-grid-thumbnails/selective-hearing-thumbnail.jpg" alt="Link to Selective Hearing video"/>
+                    	<h2>Selective Hearing: 3 DAY WEEKEND</h2>
+            	</a>
+            </div>
+            
+            
+            <div class="film-grid-item other">
+            
+            	<a href="film/live-performance-show-reel.html">
+            		<img src="../media/images/film-grid-thumbnails/live-performance-show-reel-thumbnail.jpg" alt="Link to Live Performance Show 
+                    Reel video"/>
+                    	<h2>Live Performance Show Reel</h2>
+            	</a>
+            </div>
+            
+            
+            <div class="film-grid-item commercial">
+            
+            	<a href="film/indcsn-breaks-of-ten-anna-victoria-best.html">
+            		<img src="../media/images/film-grid-thumbnails/indcsn-breaks-of-ten-anna-victoria-best-thumbnail.jpg" alt="Link to Indcsn, 
+                    Breaks of 10, Anna Victoria Best video"/>
+                    	<h2>INDCSN x Breaks Of 10</h2>
+            	</a>
+            </div>
+            
+        </div>
+       
+        
+    </div>
+    
+    <!-- FOOTER -->
+    <footer>
+    
+    	<ul id="footer">
+        
+        	<li><a href="mailto:info@wellfedfilms.tv">info@wellfedfilms.tv</a></li>
+            <li>Site designed &amp; built by <a href="http://www.chrisliddell.co.uk">Chris Liddell</a></li>
+            
+        </ul>
+        
+        <!-- jQuery for categorisation of films based on tag selection -->
+        <script>
+
+			$(document).ready(function(){
+                
+				$(".btn-all").click(function(){
+				$(".music").animate({ opacity: 0.8 })
+				$(".commercial").animate({ opacity: 0.8 })
+				$(".other").animate({ opacity: 0.8 })
+
+                $(".btn-commercial").removeClass("filmtagcurrent")
+                $(".btn-music").removeClass("filmtagcurrent")
+                $(".btn-all").addClass("filmtagcurrent")
+
+  				});
+			
+  			$(".btn-commercial").click(function(){
+				$(".music").animate({ opacity: 0 })
+				$(".other").animate({ opacity: 0 })
+				$(".commercial").animate({ opacity: 0.8 })
+
+                $(".btn-commercial").addClass("filmtagcurrent")
+                $(".btn-music").removeClass("filmtagcurrent")
+                $(".btn-all").removeClass("filmtagcurrent")
+
+				});
+			
+			$(".btn-music").click(function(){
+				$(".music").animate({ opacity: 0.8 })
+				$(".other").animate({ opacity: 0 })
+				$(".commercial").animate({ opacity: 0 })
+
+                $(".btn-commercial").removeClass("filmtagcurrent")
+                $(".btn-music").addClass("filmtagcurrent")
+                $(".btn-all").removeClass("filmtagcurrent")
+
+				});
+
+            }); 
+
+				
+		</script>
+        
+    </footer>
+
+</body>
+</html>

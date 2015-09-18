@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width">
+  <title>Using Grunt with Libsass | Articles | Chris Liddell - a front-end web developer's portfolio</title>
+  <link href='https://fonts.googleapis.com/css?family=Karla:400,400italic,700,700italic' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="../theme/css/style.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+  <script src="../theme/js/scripts.js"></script>
+  <script src="../theme/js/prism.js"></script>
+  <!-- Favicons -->
+  <link rel="icon" type="image/png" href="../favicon-32x32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="../android-chrome-192x192.png" sizes="192x192">
+  <link rel="icon" type="image/png" href="../favicon-96x96.png" sizes="96x96">
+  <link rel="icon" type="image/png" href="../favicon-16x16.png" sizes="16x16">
+</head>
+<body>
+  <div class="overlay"></div>
+
+  <header>
+    <div class="container">
+      <a class="nav__trigger nav__trigger--main"><span>Menu</span><i class="fa fa-bars"></i></a>
+      <a class="nav__trigger nav__trigger--social"><span>Social</span><i class="fa fa-angle-down"></i></a>
+      <nav role="main" class="nav nav--main hide-mob">
+        <ul class="inline">
+          <li><a href="../index">Chris</a></li>
+          <li class="active"><a href="../articles.html">Articles</a></li>
+          <li><a href="../examples">Examples</a></li>
+        </ul>
+      </nav>
+      <nav role="social" class="nav nav--social hide-mob">
+        <ul class="inline">
+          <li><a href="http://twitter.com/chriddell"><i class="fa fa-twitter"></i></a></li>
+          <li><a href="http://github.com/chriddell"><i class="fa fa-github"></i></a></li>
+          <li><a href="http://instagram.com/chriddell"><i class="fa fa-instagram"></i></a></li>
+          <li><a href="http://reddit.com/u/chriddell"><i class="fa fa-reddit"></i></a></li>
+          <li><a href="http://chriddell.tumblr.com"><i class="fa fa-tumblr"></i></a></li>
+          <li><a href="http://linkedin.com/u/chrisliddell"><i class="fa fa-linkedin"></i></a></li>
+          <li><a href="../theme/files/cv/ChrisLiddell_FrontEnd.pdf"><i class="fa fa-file-text-o"></i></a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <div class="container container--article breadcrumb">
+    <a href="../articles.html" class="breadcrumb__link">&#65513; Back</a>
+  </div>
+
+  <section class="section--articles">
+    <div class="container container--article">
+      <article class="article article--single">
+        <hgroup>
+          <h1 class="article__title--single">Using Grunt with Libsass</h1>
+          <h2 class="article__blurb--single">A quick, simple guide to the fastest way to test your digital products</h2>
+        </hgroup>
+        <span class="article__type">UX</span>
+        <span class="article__date">2 Jul 2015</span>
+        <span class="article__content">
+        <p>Here we are going to quickly run through how to set up the task runner, Grunt, to automate Sass compilation with Libsass - an increasingly popular port of the Ruby-based Sass library which has a truly incredible rate of compilation.</p>
+        <p>If you just want to get it set up and test it, follow the overview at the start of this article. If you want to understand a little more about how and why we do things, then read the whole thing!</p>
+        <h3>TL;DR</h3>
+        <ul>
+          <li><a href="https://nodejs.org/">Install Node.js</a></li>
+          <li>Create the file&nbsp;<em>package.json&nbsp;</em>in your theme's root and paste <a href="http://codepen.io/chriddell/pen/QbWmBp">this code</a> in to it</li>
+          <li>Create the&nbsp;file <em>Gruntfile.js&nbsp;</em>in your theme's root and paste <a href="http://codepen.io/chriddell/pen/JdjzQx">this code</a> in to it</li>
+          <li>In terminal, navigate to your theme's root and type the command:&nbsp;<em>npm install --save-dev</em></li>
+          <li>Still in terminal (theme's root) type the command:&nbsp;<em>npm install -g grunt-cli&nbsp;</em></li>
+          <li>Now run:&nbsp;<em>grunt</em></li>
+          <li>In your /sass folder, create a sass file name&nbsp;<em>style.scss&nbsp;</em>and start writing styles - they will auto compile</li>
+        </ul>
+        <h3>Install Node.js &amp; Grunt</h3>
+        <p>Before we start anything you’ll need to install Node.js. This is the platform Grunt runs on top of, but you don’t need to know too much about it; just go <a href="https://nodejs.org/">here</a> and click the big ‘Install’ button.</p>
+        <p>Now let’s get Grunt. It’s installed on a project-by-project basis, so open your theme’s root folder and create a file called package.json. It needs to contain the following:</p>
+        <pre><code class="language-javascript">{
+  "name": "my-project",
+  "version": "0.1.0",
+  "devDependencies": {
+    "grunt": "^0.4.1"
+  }
+}</code></pre>
+        <p>Name and version it whatever you like. The important bit in there are the <em>devDependencies</em>; this is how we specify what packages need to be installed on the project. To start we’re only specifying that this project needs Grunt version 0.4.1 at least (the tilde ‘~’ specifies it must be the most recent minor release - <a href="http://stackoverflow.com/questions/22343224/difference-between-tilde-and-caret-in-package-json">better explanation by a lovely StackOverflow user</a>).</p>
+        <p>Node uses a package manager called <a href="https://www.npmjs.com/">NPM</a>. This is very handy and allows us to easily manage our Node packages using the command line. "But I can't use the terminal!" Don’t worry, it's all straightforward stuff here.</p>
+        <p>So, using the terminal (or whatever equivalent you use - other command line tools are available) navigate to your theme’s root. Enter:</p>
+        <pre><code class="language-javascript">npm install</code></pre>
+        <p>This command installs all the packages defined as dependencies in your <span class="italic">package.json</span> file. It creates the folder <span class="italic">/node-modules</span> inside your theme, which is where all of your Node packages are installed.</p>
+        <p>Before you can run any Grunt commands, you need to install the Grunt CLI (command line interface). We’ll install it globally so we don’t need a copy on every project.</p>
+        <p>Back to the terminal again. Run this command:</p>
+        <pre><code class="language-javascript">npm install -g grunt-cli</code></pre>
+        <p>You’re now ready to install any node packages you think will help your project. There’s absolutely loads of great tools for front-end dev work - you can browse the library on the <a href="https://www.npmjs.com/">NPM website</a> but, to be honest, you'd be better using Google to search for a specific task (e.g. <span class="italic">npm minifcation</span>).</p>
+        <h3>Libsass</h3>
+        <p>Libsass is a wickedly fast port of the Sass engine. It translates Sass from Ruby to C++, allowing it to be “<a href="http://libsass.org/">simple, fast and easy to integrate</a>”. It’s quickly gaining traction with a lot of developers because of its rapid compile times; an area where Ruby-based Sass is a bit of a drag.</p>
+        <p>In order to use LibSass, we need a way to implement it. LibSass is a library. Think of it in the same way as the physical building of the same name, we need a way to check it’s books out.</p>
+        <p>Because we’re set up on Node, we’re going to use an implementer called <a href="https://www.npmjs.com/package/node-sass">node-sass</a>. Node-sass is a node wrapper for libsass, so it’s perfect for this project. Install it on your project using:</p>
+        <pre><code class="languague-javascript">npm install --save-dev node-sass</code></pre>
+        <p>Check your <span class="italic">package.json</span> file; it will have updated its dependencies.</p>
+        <pre><code class="language-javascript">{
+  "name": "my-project",
+  "version": "0.1.0",
+  "devDependencies": {
+    "grunt": "^0.4.1",
+    "node-sass": "^2.1.1"
+  }
+}</code></pre>
+        <h3>Grunt-sass</h3>
+        <p>Next up, <a href="https://www.npmjs.com/package/grunt-sass">grunt-sass</a>. This is a node package which will do the actual compiling of Sass files into CSS. No prizes for guessing how it's installed:</p>
+        <pre><code class="language-javascript">npm install --save-dev grunt-sass</code></pre>
+        <p>Just to make things a bit easier to compile, let’s also install <a href="https://www.npmjs.com/package/grunt-contrib-watch">grunt-contrib-watch</a>. We’ll tell this package to watch our Sass files and automatically compile them when they change with grunt-sass.</p>
+        <pre><code class="language-javscript">npm install --save-dev grunt-contrib-watch</code></pre>
+        <p>Go ahead and download the <a href="http://livereload.com/extensions/">livereload browser extension</a> too -&nbsp;this connects your browser with grunt-contrib-watch, and will automagically reload your browser as your writing new styles.</p>
+        <h3>We're getting closer</h3>
+        <p>We've now got a <span class="italic">package.json</span> file which looks like this:</p>
+        <pre><code class="language-javascript">{
+  "name": "my-project",
+  "version": "0.1.0",
+  "devDependencies": {
+    "grunt": "^0.4.1",
+    "node-sass": "^2.1.1",
+    "grunt-sass": "^0.16.0",
+    "grunt-contrib-watch": "~0.6.1"
+  }
+}</code></pre>
+        <p>Now we create a file to tell grunt what tasks to run and how. Create a file in your theme’s root named Gruntfile.js and paste the following in to it:</p>
+        <pre><code class="language-javascript">module.exports = function (grunt) {
+  "use strict";
+    grunt.initConfig({
+      pkg: grunt.file.readJSON('package.json'),
+      sass: {
+        prod: {
+          options: {
+            outputStyle: 'compressed'
+          },
+          files: {
+            './css/style.css': './sass/style.scss',
+          }
+        },
+        dev: {
+          options: {
+            outputStyle: 'expanded'
+          },
+          files: {
+            './css/style.css': './sass/style.scss',
+          }
+        }
+      },
+      watch: {
+        options: {
+          livereload: true,
+        },
+        css: {
+          files: ['./sass/**/*.scss'],
+          tasks: ['sass:dev'],
+          options: {
+            spawn: false
+          }
+        },
+        livereload: {
+          options: {
+            livereload:true
+          },
+          files:[
+            './css/*.css',
+          ]
+        }
+      }
+    });
+
+    // Load tasks...
+    grunt.loadNpmTasks('grunt-sass');
+    grunt.loadNpmTasks('grunt-contrib-watch');
+
+    // Default task.
+    grunt.registerTask('default', ['watch']);
+};</code></pre>
+        <p>These are essentially the default configuration options for grunt-sass and grunt-contrib-watch. All the declarations from <span class="italic">sass/style.scss</span> will be compiled in to <span class="italic">css/style.css</span>, leaving you free to set up your <span class="italic">/sass</span> folder any way you wish - so long as your <span class="italic">style.scss</span>file imports everything. I personally like to set my sass folders up using a structure based on SMACSS, with different partials for any styles I think should live together.</p>
+        <h3>Try it out</h3>
+        <iframe frameborder="0" height="480" scrolling="no" src="http://gfycat.com/ifr/CarefreeLightheartedGrouper" style="-webkit-backface-visibility: hidden;-webkit-transform: scale(1);" width="854"></iframe>
+        <p>Again, in terminal in your theme's root, type:</p>
+        <pre><code class="language-javascript">grunt</code></pre>
+        <p>The 'watch' task will start. Any changes you make in your <span class="italic">/sass</span> folder should be reflected in <span class="italic">css/style.css</span>. Level complete!</p>
+        <p>Hopefully this article has made you feel less afraid of things like Grunt and terminal, and given you a taste of what's possible when we embrace alien tools and techniques.</p>
+        <p>Here some recommended reading for getting the most out of grunt and node packages:</p>
+        <ul>
+          <li><a href="http://gruntjs.com/getting-started">Getting started - Grunt: The Javascript Task Runner</a></li>
+          <li><a href="http://24ways.org/2013/grunt-is-not-weird-and-hard/">Grunt for people who think things like Grunt are weird and hard</a></li>
+          <li><a href="https://github.com/gruntjs/grunt-contrib-watch">Github - grunt-contrib-watch</a></li>
+        </ul>
+        <p>If you have any questions or suggestions feel free to <a href="http://twitter.com/chriddell">tweet or DM me</a>.</p>
+      </article>
+      <div class="article__footer">
+        <span class="btn btn--next">
+          <a href="sass-architecture">&#65515; Another?</a>
+          <p>Theming Drupal forms with JS</p>
+          <p>A simple to implement solution for any newbie Drupal-ers.</p>
+        </span>
+        <span class="btn btn--top">
+          <a href="#">&#65514; Back to top</a>
+        </span>
+      </div>
+    </div>
+  </section>
+  
+</body>
+</html>

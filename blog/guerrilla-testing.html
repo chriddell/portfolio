@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width">
+  <title>Guerrilla Testing: under-the-bonnet | Articles | Chris Liddell - a front-end web developer's portfolio</title>
+  <link href='https://fonts.googleapis.com/css?family=Karla:400,400italic,700,700italic' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="../theme/css/style.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+  <script src="../theme/js/scripts.js"></script>
+  <script src="../theme/js/prism.js"></script>
+  <!-- Favicons -->
+  <link rel="icon" type="image/png" href="../favicon-32x32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="../android-chrome-192x192.png" sizes="192x192">
+  <link rel="icon" type="image/png" href="../favicon-96x96.png" sizes="96x96">
+  <link rel="icon" type="image/png" href="../favicon-16x16.png" sizes="16x16">
+</head>
+<body>
+  <div class="overlay"></div>
+
+  <header>
+    <div class="container">
+      <a class="nav__trigger nav__trigger--main"><span>Menu</span><i class="fa fa-bars"></i></a>
+      <a class="nav__trigger nav__trigger--social"><span>Social</span><i class="fa fa-angle-down"></i></a>
+      <nav role="main" class="nav nav--main hide-mob">
+        <ul class="inline">
+          <li><a href="../index">Chris</a></li>
+          <li class="active"><a href="../articles.html">Articles</a></li>
+          <li><a href="../examples">Examples</a></li>
+        </ul>
+      </nav>
+      <nav role="social" class="nav nav--social hide-mob">
+        <ul class="inline">
+          <li><a href="http://twitter.com/chriddell"><i class="fa fa-twitter"></i></a></li>
+          <li><a href="http://github.com/chriddell"><i class="fa fa-github"></i></a></li>
+          <li><a href="http://instagram.com/chriddell"><i class="fa fa-instagram"></i></a></li>
+          <li><a href="http://reddit.com/u/chriddell"><i class="fa fa-reddit"></i></a></li>
+          <li><a href="http://chriddell.tumblr.com"><i class="fa fa-tumblr"></i></a></li>
+          <li><a href="http://linkedin.com/u/chrisliddell"><i class="fa fa-linkedin"></i></a></li>
+          <li><a href="../theme/files/cv/ChrisLiddell_FrontEnd.pdf"><i class="fa fa-file-text-o"></i></a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <div class="container container--article breadcrumb">
+    <a href="../articles.html" class="breadcrumb__link">&#65513; Back</a>
+  </div>
+
+  <section class="section--articles">
+    <div class="container container--article">
+      <article class="article article--single">
+        <hgroup>
+          <h1 class="article__title--single">Guerrilla Testing: under-the-bonnet</h1>
+          <h2 class="article__blurb--single">A quick, simple guide to the fastest way to test your digital products</h2>
+        </hgroup>
+        <span class="article__type">UX</span>
+        <span class="article__date">2 Jul 2015</span>
+        <span class="article__content">
+        <p>A quick, simple guide to the fastest way to test your digital products. How I do it, and why you should too.</p>
+        <blockquote>
+          <p>[Guerrilla testing is] the art of pouncing on lone people in cafes and public spaces, [then] quickly filming them whilst they use a website for a couple of minutes”</p>
+          <footer>- <a href="http://twitter.com/martinbelam" title="Martin Belam's Twitter profile">@MartinBelam</a></footer>
+        </blockquote>
+        <p>A much more poetic definition than I could ever come up with.</p>
+        <img src="../theme/img/blog/guerrilla-gorilla.jpg">
+        <p>Whilst working as a freelancer I occasionally took on projects where there was very little (sometimes zero!) budget for user research and testing. This is becoming less and less frequent, though a scenario where there is little/no budget for testing is still a real possibility. So here I want to share my get-out-jail-free test method with you.</p>
+        <p>Enter, the Guerrilla.</p>
+        <p>Many of you are likely aware of guerrilla testing and already count it in your toolkit. For those of you who aren’t, or maybe want to brush up on the finer details, I’m going to take you through why, how and when it should be done.</p>
+        <h3>Why?</h3>
+        <p>Because it’s fast. Really fast.</p>
+        <p>I was recently asked to speed up a client's registration process on their website so they could extract it and use it at industry conferences and events. Many of the parties involved had different ideas on how to do it - a paged form perhaps? “No, a non-paged form is definitely quicker as the user doesn’t have to click through multiple pages.” What about some kind of ‘fill-in-the-gaps’ solution? Pre-completed fields.</p>
+        <p>We had a lot of ideas on how to do it but not enough time to facilitate and run lab testing; so we took it into the wild.</p>
+        <iframe src="http://gfycat.com/ifr/UnnaturalLiquidBison" frameborder="0" scrolling="no" width="100%" height="200px" style="-webkit-backface-visibility: hidden;-webkit-transform: scale(1);"></iframe>
+        <p>Using <a href="http://macaw.co/" title="The official Macaw website">Macaw</a> as a prototyping tool (it’s already good, and <a href="http://scarlet.macaw.co" title="The official Macaw Scarlet website">about to get a whole lot better</a>) we created instances of the best form ideas and took them to the park, timing users as well as asking them how long they think it took to complete. So at the end of it, not only did we get a ‘winning form’ by measuring actual times and estimated times, we also already had a working prototype to take to the client - I should also mention that we completed this in just 2 days!</p>
+        <h3>When?</h3>
+        <p>You can probably understand when this kind of testing would be useful from what you’ve already read, but just in case: it’s when you have no time! N.B. This can also be translated as ‘no money’.</p>
+        <p>You can pretty much always make time for guerrilla. All you need to do (and this is going to cover the ‘How’ section) is:</p>
+        <ul>
+          <li><span class="bold">Have a product you want to test</span> - this could be literally anything: I’ve tested paper prototypes, half-finished Android applications and live websites. It doesn’t even have to be digital, you could go out there with a prototype of a cuddly toy or a new coffee mug and ask people about it. Focus groups are dead; long live guerrilla.</li>
+          <li><span class="bold">Think of somewhere to test it</span> - coffee shops are good, as are University campuses; essentially any public (or not so public, with permission) place there is a build up of people.</li>
+          <li><span class="bold">Have a general idea of what you want to test</span> - are there specific things you want to find out? e.g. if the navigation works, are the images sexy enough? Think of questions and tasks for the users if this is the case. Maybe you just want general feedback on the product; that’s okay too, just ask users what they think of it. As long as you are open and nice with them, they’ll give you genuine feedback.</li>
+        </ul>
+        <h3>How I do it</h3>
+        <p>I'm pretty flexible in how I carry out guerrilla research because it should be; demographics change, products differ and the depth of research needed is varied across projects. I’ll outline how I generally test a web product - this could be an iOS application, website, component of a website, animation, video etc. You get the idea…</p>
+        <ol>
+          <li class="bold">Figure out what we want out of the testing:</li>
+            <ul>
+              <li>The level/areas of feedback always vary, so we’ll write down some key outcomes we’d like to achieve</li>
+              <li>We’ll also produce a brief script/task sheet to take out with us</li>
+            </ul>
+          <li class="bold">Depending on the scale of the tasks for users, decide on an incentive:</li>
+            <ul>
+              <li>Some chocolate or a drink will usually suffice</li>
+              <li>Occasionally we might run a raffle and buy a prize of ~£15</li>
+            </ul>
+          <li class="bold">Scout a location</li>
+            <ul>
+              <li>Think about your target demographic - where do they hang out?</li>
+            </ul>
+          <li class="bold">Logistics</li>
+            <ul>
+              <li>What device are we testing on?</li>
+              <li>Do we need an internet connection? (Hotspotting your iPhone comes in handy here)</li>
+              <li>Who’s free to oversee the testing? We generally like to take a researcher and a designer/developer, but it’s easily achievable on your own.</li>
+              <li>Recording/note-taking - how will we record the sessions?</li>
+            </ul>
+          <li class="bold">Go out and do it!</li>
+            <ul>
+              <li>Take our tablet/phone/laptop out and test the darn thing!</li>
+            </ul>
+        </ol>
+        <p>Like Mr. Belam says, it’s the art of asking the public questions about your thing - put that into practice as best you can, and you’ll come out with some useful results.</p>
+        <h3>Further Reading &amp; Resources</h3>
+        <ul>
+          <li><a href="http://www.uxbooth.com/articles/the-art-of-guerrilla-usability-testing/">UX Booth: The Art of Guerrilla Testing</a></li>
+          <li><a href="https://www.gov.uk/service-manual/user-centred-design/user-research/guerrilla-testing.html">Gov.uk: Guerrilla Testing</a></li>
+          <li><a href="http://www.hongkiat.com/blog/android-screen-recording-apps/">The 5 best screen recording apps for Android</a> (Shou)</li>
+          <li><a href="http://ios.wonderhowto.com/how-to/record-your-ipads-iphones-screen-no-jailbreak-computer-required-0156864/">How to set up screen recording on iOS devices</a></li>
+        </ul>
+      </article>
+      <div class="article__footer">
+        <span class="btn btn--prev">
+          <a href="sass-architecture">&#65513; Another?</a>
+        </span>
+        <span class="btn btn--next">
+          <a href="theming-drupal-forms-with-js">&#65515; Next</a>
+          <p>Theming Drupal forms with JS</p>
+          <p>A simple to implement solution for any newbie Drupal-ers.</p>
+        </span>
+        <span class="btn btn--top">
+          <a href="#">&#65514; Back to top</a>
+        </span>
+      </div>
+    </div>
+  </section>
+  
+</body>
+</html>

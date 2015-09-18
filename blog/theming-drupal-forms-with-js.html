@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width">
+  <title>Theming Drupal forms with JS | Articles | Chris Liddell - a front-end web developer's portfolio</title>
+  <link href='https://fonts.googleapis.com/css?family=Karla:400,400italic,700,700italic' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="../theme/css/style.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+  <script src="../theme/js/scripts.js"></script>
+  <script src="../theme/js/prism.js"></script>
+  <!-- Favicons -->
+  <link rel="icon" type="image/png" href="../favicon-32x32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="../android-chrome-192x192.png" sizes="192x192">
+  <link rel="icon" type="image/png" href="../favicon-96x96.png" sizes="96x96">
+  <link rel="icon" type="image/png" href="../favicon-16x16.png" sizes="16x16">
+</head>
+<body>
+  <div class="overlay"></div>
+
+  <header>
+    <div class="container">
+      <a class="nav__trigger nav__trigger--main"><span>Menu</span><i class="fa fa-bars"></i></a>
+      <a class="nav__trigger nav__trigger--social"><span>Social</span><i class="fa fa-angle-down"></i></a>
+      <nav role="main" class="nav nav--main hide-mob">
+        <ul class="inline">
+          <li><a href="../index">Chris</a></li>
+          <li class="active"><a href="../articles.html">Articles</a></li>
+          <li><a href="../examples">Examples</a></li>
+        </ul>
+      </nav>
+      <nav role="social" class="nav nav--social hide-mob">
+        <ul class="inline">
+          <li><a href="http://twitter.com/chriddell"><i class="fa fa-twitter"></i></a></li>
+          <li><a href="http://github.com/chriddell"><i class="fa fa-github"></i></a></li>
+          <li><a href="http://instagram.com/chriddell"><i class="fa fa-instagram"></i></a></li>
+          <li><a href="http://reddit.com/u/chriddell"><i class="fa fa-reddit"></i></a></li>
+          <li><a href="http://chriddell.tumblr.com"><i class="fa fa-tumblr"></i></a></li>
+          <li><a href="http://linkedin.com/u/chrisliddell"><i class="fa fa-linkedin"></i></a></li>
+          <li><a href="../theme/files/cv/ChrisLiddell_FrontEnd.pdf"><i class="fa fa-file-text-o"></i></a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <div class="container container--article breadcrumb">
+    <a href="../articles.html" class="breadcrumb__link">&#65513; Back</a>
+  </div>
+
+  <section class="section--articles">
+    <div class="container container--article">
+      <article class="article article--single">
+        <hgroup>
+          <h1 class="article__title--single">Theming Drupal forms with JS</h1>
+          <h2 class="article__blurb--single">A simple to implement solution for any newbie Drupal-ers.</h2>
+        </hgroup>
+        <span class="article__type">Front-end</span>
+        <span class="article__date">12 Aug 2015</span>
+        <span class="article__content">
+        <p>Logically grouping fields in a Drupal user form can be tricky, so here's a simple to implement solution for any newbie themers out there.</p>
+        <p>Theming the default Drupal profile form can be at least tricky, if not completely demoralising, at times - so, for a recent project, I wrote some jQuery to handle the layout and separation of profile-types.</p>
+        <p class="italic">N.b this tutorial presumes you are fluent in basic Drupal7 theming practices, such as <a href="https://www.drupal.org/node/756722" title="Managing JavaScript in Drupal 7">injecting javascript</a> in to specific pages, and in basic jQuery syntax.</p>
+        <img src="../theme/img/blog/form.png">
+        <p>The jQuery we used was very simple and we needed to mix-and-match fields between user edit and many profile types.</p>
+        <p>As on every project, to kick-off I spec’d out a rough prototype on paper with the client - this kind of client workshop generally consists of a discussion between developer and client of user &amp; client needs, throwing out ideas ad-hoc of how the 'thing' might work. The output of this meeting was a list of grouped fields which needed to be included in the form, as well as a rough drawing of what it might look like on the page.</p>
+        <p>The jQuery we wrote sets up variables for each ‘section’ of the edit form. These variables’ values are defined as the classes of the fields which belong to them. For example, <span class="italic">$education</span> = <span class="italic">‘.field-name-field-school-name, .field-name-field-gcse-results’</span>. This is repeated for each section/field until we have something that looks like this:</p>
+        <pre><code class="language-javascript">$education = $('Enter your fields\' classes here');
+$personal = $('Enter your fields\' classes here');
+$contact = $('Enter your fields\' classes here');
+$subscriptions = $('Enter your fields\' classes here');</code></pre>
+        <p>If you’re loading your javascript file on every page (then don’t - use <a href="https://www.drupal.org/node/756722#attached" title="Managing JavaScript in Drupal 7">method #3</a> - but if you must...), make sure to target a specific form - otherwise you’ll be hiding the fields from wherever they appear on your site.</p>
+        <p>Now create a custom block and add a list of links to the different sections of the form. These can be empty links, we only need them to bind events to. Make sure each list item has a different, relevant class - e.g. if there is a link to a personal section, give the item a class of <span class="italic">‘js-personal’</span>.</p>
+        <p>Back into the JS file now: set each of the variables you have already defined (e.g. <span class="italic">$education</span>) to hidden, using the jQuery .hide() property.</p>
+        <pre><code class="language-javascript">$education = $('Enter your fields\' classes here');
+$personal = $('Enter your fields\' classes here');
+$contact = $('Enter your fields\' classes here');
+$subscriptions = $('Enter your fields\' classes here');
+
+$education.hide();
+$personal.hide();
+$contact.hide();</code></pre>
+        <p>Omit whichever section you want to display on page-load. In our example, <span class="italic">$subscriptions</span> is displayed on page-load. Now we write the code which triggers hiding/showing of the sections.</p>
+        <pre><code class="language-javascript">$education = $('Enter your fields\' classes here');
+$personal = $('Enter your fields\' classes here');
+$contact = $('Enter your fields\' classes here');
+$subscriptions = $('Enter your fields\' classes here');
+
+$education.hide();
+$personal.hide();
+$contact.hide();
+
+$('.js-contact').click(function(){ // When element with class .js-contact is clicked...
+    $contact.show(); // ...show the 'Contact' section
+    $subscriptions.hide(); // ...hide the 'Subscriptions' section
+    $education.hide(); // ...hide the 'Education' section
+    $personal.hide(); // ...hide the 'Personal' section
+});</code></pre>
+        <p>Abra-kadabra. Ala-kazam.</p>
+      </article>
+      <div class="article__footer">
+        <span class="btn btn--prev">
+          <a href="guerrilla-testing">&#65513; Previous</a>
+        </span>
+
+        <span class="btn btn--top">
+          <a href="#">&#65514; Back to top</a>
+        </span>
+      </div>
+
+      
+      
+    </div>
+  </section>
+  
+</body>
+</html>

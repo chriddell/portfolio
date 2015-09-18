@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width">
+  <title>Sass Architecture: The right way? | Articles | Chris Liddell - a front-end web developer's portfolio</title>
+  <link href='https://fonts.googleapis.com/css?family=Karla:400,400italic,700,700italic' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="../theme/css/style.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+  <script src="../theme/js/scripts.js"></script>
+  <script src="../theme/js/prism.js"></script>
+  <!-- Favicons -->
+  <link rel="icon" type="image/png" href="../favicon-32x32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="../android-chrome-192x192.png" sizes="192x192">
+  <link rel="icon" type="image/png" href="../favicon-96x96.png" sizes="96x96">
+  <link rel="icon" type="image/png" href="../favicon-16x16.png" sizes="16x16">
+</head>
+<body>
+  <div class="overlay"></div>
+
+  <header>
+    <div class="container">
+      <a class="nav__trigger nav__trigger--main"><span>Menu</span><i class="fa fa-bars"></i></a>
+      <a class="nav__trigger nav__trigger--social"><span>Social</span><i class="fa fa-angle-down"></i></a>
+      <nav role="main" class="nav nav--main hide-mob">
+        <ul class="inline">
+          <li><a href="../index">Chris</a></li>
+          <li class="active"><a href="../articles.html">Articles</a></li>
+          <li><a href="../examples">Examples</a></li>
+        </ul>
+      </nav>
+      <nav role="social" class="nav nav--social hide-mob">
+        <ul class="inline">
+          <li><a href="http://twitter.com/chriddell"><i class="fa fa-twitter"></i></a></li>
+          <li><a href="http://github.com/chriddell"><i class="fa fa-github"></i></a></li>
+          <li><a href="http://instagram.com/chriddell"><i class="fa fa-instagram"></i></a></li>
+          <li><a href="http://reddit.com/u/chriddell"><i class="fa fa-reddit"></i></a></li>
+          <li><a href="http://chriddell.tumblr.com"><i class="fa fa-tumblr"></i></a></li>
+          <li><a href="http://linkedin.com/u/chrisliddell"><i class="fa fa-linkedin"></i></a></li>
+          <li><a href="../theme/files/cv/ChrisLiddell_FrontEnd.pdf"><i class="fa fa-file-text-o"></i></a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <div class="container container--article breadcrumb">
+    <a href="../articles.html" class="breadcrumb__link">&#65513; Back</a>
+  </div>
+
+  <section class="section--articles">
+    <div class="container container--article">
+      <article class="article article--single">
+        <hgroup>
+          <h1 class="article__title--single">Sass Architecture: The right way?</h1>
+          <h2 class="article__blurb--single">Investigating and developing a Sass folder structure at the beginning of a project can be really therapeutic...</h2>
+        </hgroup>
+        <span class="article__type">Front-end</span>
+        <span class="article__date">4 Jun 2015</span>
+        <span class="article__content">
+        <img src="../theme/img/blog/sass-architecture.jpg">
+        <p>Investigating and developing a Sass folder structure at the beginning of a project can be really therapeutic; like taking a day to arrange your records or getting your toys ready for a battle when you were a kid - I used to spend hours arranging WWF wrestlers in to a 'Royal Rumble' scene; Jeff or Matt on the turnbuckle, The Undertaker hanging someone over the ropes and Vince McMahon in a corner somewhere, crying.</p>
+        <p>Now that I've got rid of all my wrestlers (<span class="italic">thanks, Mum...</span>), this kind of dedication manifests itself in some of the work I do on the web.</p>
+        <img src="../theme/img/blog/class-headache.png">
+        <p>This is a good idea for many reasons:</p>
+        <ol>
+          <li>Traceability - we don't have to search through 10,000+ lines of CSS when a style breaks</li>
+          <li>Readability - if a new developer gets involved on the project or it's handed-over to someone else, it's possible for them to understand and edit the theme quickly</li>
+          <li>Organised evolution - 'Everything in it's right place'; it allows us to grow our stylesheets as the product or client grows</li>
+          <li>It keeps us sane...</li>
+        </ol>
+        <p>So, how to do it then? If you just want to jump right in and use a documented structure, there are quite a few good ones available. Check out <a href="https://smacss.com/">SMACSS</a> by <a href="http://snook.ca/">Jonathan Snook</a> and <a href="https://speakerdeck.com/dafed/managing-css-projects-with-itcss">ITCSS</a> by Harry Roberts (<a href="https://twitter.com/csswizardry">@csswizardry</a>), or if you're looking for a more all-encompassing product (shipped with useful mixins, grid functions etc.) try <a href="http://getbootstrap.com/">Bootstrap</a> or <a href="http://foundation.zurb.com/">Zurb</a>.</p>
+        <p>I tend to stay away from the more robust ones like Bootstrap as I like to know and understand exactly what code I'm working with - I'm currently using ITCSS.</p>
+        <p>If you're looking to create your own from scratch, then, firstly, good luck. Secondly you'll probably want to take these things in to account:</p>
+        <ul>
+          <li><span class="bold">Relevance</span> - There's no point getting too granular if your site is (and will only ever be) made up of a small number of pages/styles</li>
+          <li><span class="bold">Specificity</span> - The order you import partials matters. Make sure the specificity of your selectors increases in the same order the partials are imported</li>
+          <li><span class="bold">Use a <a href="http://thesassway.com/advanced/modular-css-naming-conventions">naming convention</a> and stick to it!</span></li>
+        </ul>
+        <p>Remember people, have fun with it!</p>
+      </article>
+      <div class="article__footer">
+        <span class="btn btn--prev">
+          <a href="">&#65513; Previous</a>
+        </span>
+        <span class="btn btn--next">
+          <a href="guerrilla-testing">&#65515; Another?</a>
+          <p>Guerrilla Testing</p>
+          <p>A quick, simple guide to the fastest way to test your digital products</p>
+        </span>
+        <span class="btn btn--top">
+          <a href="#">&#65514; Back to top</a>
+        </span>
+      </div>
+
+      
+      
+    </div>
+  </section>
+  
+</body>
+</html>

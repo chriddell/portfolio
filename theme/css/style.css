@@ -476,7 +476,8 @@ select {
  *    `input` and others.
  */
 button,
-html input[type="button"], input[type="reset"],
+html input[type="button"],
+input[type="reset"],
 input[type="submit"] {
   -webkit-appearance: button;
   /* 2 */
@@ -645,8 +646,7 @@ a:visited {
   -webkit-transition: color, 0.25s, ease-in-out;
   -moz-transition: color, 0.25s, ease-in-out;
   transition: color, 0.25s, ease-in-out; }
-  a:hover,
-  a:active,
+  a:hover, a:active,
   a:visited:hover,
   a:visited:active {
     color: black; }
@@ -820,7 +820,7 @@ nav {
   z-index: -1;
   animation: swoosh 3500ms linear both;
   animation-delay: 1s; }
-  @media (min-width: 640px) {
+  @media (min-width: 870px) {
     .intro__screenshot {
       visibility: visible; } }
 
@@ -863,11 +863,11 @@ nav {
 .client--brightnetwork {
   background-image: url("../img/clients/logos/brightnetwork.png"); }
 
-.client--ecre {
-  background-image: url("../img/clients/logos/ecre.png"); }
+.client--threesixty {
+  background-image: url("../img/clients/logos/threesixty.png"); }
 
-.client--ymca {
-  background-image: url("../img/clients/logos/ymca.png"); }
+.client--cn {
+  background-image: url("../img/clients/logos/cn.png"); }
 
 .client--smg {
   background-image: url("../img/clients/logos/smg.png"); }
@@ -875,33 +875,36 @@ nav {
 .client--relate {
   background-image: url("../img/clients/logos/relate.png"); }
 
-p a i.fa {
+p i.fa {
   margin-right: 0.25em; }
 
-a[href*="twitter"]:before {
+a[href*='twitter']:before {
   background: #00aced; }
 
-a[href*="instagram"]:before {
+a[href*='instagram']:before {
   background: #9b6954; }
 
-a[href*="github"]:before {
+a[href*='github']:before {
   background: #6cc644; }
 
-a[href*="linkedin"]:before {
+a[href*='linkedin']:before {
   background: #007bb5; }
 
-a[href*="tumblr"]:before {
+a[href*='tumblr']:before {
   background: #32506d; }
 
-a[href*="reddit"]:before {
+a[href*='reddit']:before {
   background: #cee3f8; }
 
-a[href*="flickr"]:before {
+a[href*='flickr']:before {
   background: #ff0084; }
 
 .cta--home {
   font-size: 1.05em;
   margin-top: 1em; }
+
+.cta--secondary {
+  color: #6e6e6e; }
 
 .btn {
   border: 1px solid #e75a4d;
@@ -1041,8 +1044,7 @@ a[href*="flickr"]:before {
     font-style: italic;
     color: #aeaeae; }
   @media (min-width: 640px) {
-    .article__type,
-    .article__date {
+    .article__type, .article__date {
       position: absolute;
       right: 0; }
     .article__date {
@@ -1162,6 +1164,18 @@ a[href*="flickr"]:before {
     color: #b62618; }
   .example--cex .example__date:before {
     background-color: #e75a4d; }
+
+.example--threesixty {
+  background-color: #1d212a;
+  color: white; }
+  .example--threesixty .example__url {
+    color: #d0041d;
+    border-bottom: 1px solid #d0041d; }
+  .example--threesixty .example__url:hover,
+  .example--threesixty .example__used {
+    color: #6c020f; }
+  .example--threesixty .example__date:before {
+    background-color: #d0041d; }
 
 .tidbits {
   background-color: #fbfbfb;

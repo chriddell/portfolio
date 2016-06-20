@@ -1,0 +1,103 @@
+/* _style.scss
+
+The main Sass-sheet for this project.
+---------------------------------------- */
+
+/* Main Styles
+---------------------------------------- */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  background-color: #efefef;
+  font-family: 'Courier';
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+.container {
+  max-width: 940px;
+  padding: 0 10px;
+  margin: 0 auto;
+}
+
+h1 {
+  margin-top: 10vh;
+  text-align: center;
+}
+
+/* Form
+---------------------------------------- */
+
+form {
+  display: table;
+  width: 100%;
+  height: 25vh;
+  min-height: 200px;
+  font-size: 1.25rem;
+  background-color: #c8dadf;
+}
+
+label strong:hover {
+  cursor: pointer; // let user know they can click
+}
+
+.box__input,
+.box__uploading,
+.box__success,
+.box__error {
+  display: table-cell;
+  text-align: center;
+  vertical-align: middle;
+}
+
+// Hide 'status' classes
+.box__dragndrop,
+.box__uploading,
+.box__success,
+.box__error {
+  display: none; 
+}
+
+// Advanced browsers see drag and drop + diff styles
+.box.has-advanced-upload {
+  outline: 2px dashed #92b0b3;
+  outline-offset: -10px;
+  -webkit-transition: outline-offset .15s ease-in-out, background-color .15s linear;
+          transition: outline-offset .15s ease-in-out, background-color .15s linear;
+}
+.box.has-advanced-upload .box__dragndrop {
+  display: inline;
+}
+
+// Dragged over
+.box.is-dragover {
+  background-color: darken(#c8dadf, 10%);
+}
+
+// Uploading
+.box.is-uploading .box__input {
+  display: none;
+}
+.box.is-uploading .box__uploading {
+  display: table-cell;
+}
+
+.input--hidden {
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
+}
+
+/* Display
+---------------------------------------- */
+.display img {
+  padding: 10px;
+  height: 300px;
+}

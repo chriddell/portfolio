@@ -7,3 +7,6 @@ theme/gruntfile.js
 
 # Ignore uncompiled Sass files
 theme/css/sass
+
+# Ignore /drop
+drop/

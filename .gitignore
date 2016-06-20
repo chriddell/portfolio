@@ -9,4 +9,4 @@ theme/gruntfile.js
 theme/css/sass
 
 # Ignore /drop
-drop/
+drop

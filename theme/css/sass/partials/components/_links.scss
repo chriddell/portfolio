@@ -1,0 +1,32 @@
+a.breadcrumb__link {
+  color: $clr-highlight;
+}
+
+a.tidbits__item__link {
+  display: block;
+}
+
+// Social links
+.nav--social {
+  a:before {
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    background: $clr-highlight;
+    border-radius: 290486px;
+    content: " ";
+    display: block;
+    opacity: 0;
+    z-index: -1;
+  }
+
+  a:hover {
+    color: white;
+    &:before {
+      opacity: 1;
+      animation: jelly 1000ms linear both;
+    }
+  }
+}

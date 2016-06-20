@@ -1,0 +1,42 @@
+html {
+  font-size: $font-baseSize;
+  font-family: $font-mainStack;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  margin-top: 1.5em;
+  overflow-x: hidden;
+
+  @include respond-to(tablet){
+    margin-top: 5em;
+  }
+}
+
+h1, 
+h2, 
+h3, 
+h4, 
+h5 {
+  font-weight: normal;
+}
+
+p {
+  margin: 0;
+  letter-spacing: -0.05em;
+
+  + p {
+    margin-top: 1em;
+  }
+}
+
+::selection{
+  background: $clr-highlight;
+  color: white;
+}
+
+img {
+  image-rendering: pixelated;
+}

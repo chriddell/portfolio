@@ -1,0 +1,11 @@
+ul.example__used {
+  margin-top: 1em;
+
+  li + li {
+    margin-left: 0.5em;
+  }
+
+  i {
+    font-size: 1.5em;
+  }
+}

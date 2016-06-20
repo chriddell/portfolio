@@ -1,0 +1,94 @@
+// Type
+
+.klar {
+  font-family: $font-specialStack;
+}
+
+.center {
+  text-align: center;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.italic {
+  font-style: italic;
+}
+
+// Aesthetics
+
+.box-link {
+  color: white !important;
+  text-decoration: none;
+  padding: 0.1em 0.2em;
+  position: relative;
+
+  &:before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    content: '';
+    background-color: $clr-highlight;
+    z-index: -1;
+  }
+
+  &:hover {
+    &:before {
+      animation: jelly 1000ms linear both;
+    }
+  }
+}
+
+.partial-underline {
+  position: relative;
+  display: inline-block;
+
+  &:before {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    display: block;
+    width: 30%;
+    min-width: 40px;
+    height: 1px;
+  }
+}
+
+a.partial-underline {
+  color: $clr-highlight !important;
+
+  &:before {
+    left: 1.35em;
+    background-color: $clr-highlight;
+    @include transition(width, 500ms, linear);
+  }
+
+  &:hover:before {
+    width: 50%;
+  }
+}
+
+// Display
+
+.inline {
+  li {
+    display: inline-block;
+  }
+}
+
+.hide-mob, 
+%hide-mob {
+  display: none;
+
+  @include respond-to(tablet) {
+    display: inherit;
+  }
+}
+
+.section--tidbits {
+  display: none;
+}

@@ -1,0 +1,18 @@
+@mixin clientLogos($client){
+  .client--#{$client} {
+    background-image: url('../img/clients/logos/#{$client}.png');
+  }
+}
+
+.client {
+  background: no-repeat center center;
+  background-size: contain;
+  height: 64px;
+  min-width: 64px;
+}
+
+@include clientLogos(brightnetwork);
+@include clientLogos(ecre);
+@include clientLogos(ymca);
+@include clientLogos(smg);
+@include clientLogos(relate);

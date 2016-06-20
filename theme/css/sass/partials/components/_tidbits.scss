@@ -1,0 +1,125 @@
+.tidbits {
+  background-color: lighten($clr-lightest, 30%);
+  height: 300px;
+  position: relative;
+  @include transition(opacity, $global-transition-duration, ease);
+
+  @include respond-to(tablet) {
+    padding: 1em 0;
+  }
+
+  &:hover &__item {
+    opacity: 0.5;
+  }
+
+  &__item {
+    height: 100%;
+    float: left;
+    padding-right: 10px; // must be px for JS to calculate total width of container
+    @include transition(opacity, $global-transition-duration, ease);
+
+    &:hover {
+      opacity: 1 !important;
+      cursor: pointer;
+    }
+
+    &:last-of-type {
+      padding-right: 0;
+    }
+
+    img {
+      height: 100%;
+    }
+
+    h3, 
+    figcaption {
+      visibility: hidden;
+      position: absolute;
+      text-indent: -100000px;
+    }
+  }
+
+  &__intro {
+    background-color: lighten($clr-light, 30%);
+    color: white;
+    padding: 1em;
+
+    @include respond-to(tablet) {
+      position: absolute;
+      top: 2em;
+      right: 10%;
+      width: 25%;
+      min-width: 250px;
+      height: calc(100% - 4em);
+      padding: 1em;
+      z-index: 2;
+    }
+
+    a {
+      border-bottom: 1px solid $clr-light;
+    }
+  }
+
+  &__title {
+    @extend .example__title;
+    margin-top: 0;
+    margin-bottom: 0.67em; // reset to base
+  }
+
+  &__view-holder {
+    display: none;
+    opacity: 0;
+    margin-top: 1em;
+    padding: 2em 1em;
+    background-color: $clr-dark;
+    color: white;
+
+    img {
+      max-width: 100%;
+      box-shadow: 0 0 1em $clr-light;
+      display: block;
+      margin: 0 auto;
+    }
+
+    &__title {
+      font-size: 2em;
+      margin: 0;
+    }
+
+    &__blurb {
+      margin: 1em 0 2em;
+    }
+  }
+}
+
+.shift {
+  position: absolute;
+  top: 0;
+  display: table;
+  height: 100%;
+  width: 5%;
+  font-size: 3em;
+  color: white;
+  opacity: 0.8;
+  z-index: 2;
+  text-align: center;
+  @include transition(opacity, $global-transition-duration, ease);
+
+  .fa {
+    display: table-cell;
+    vertical-align: middle;
+  }
+
+  &--prev {
+    left: 0;
+  }
+
+  &--next {
+    right: 0;
+  }
+
+  &:hover {
+    opacity: 1;
+    cursor: pointer;
+  }
+}

@@ -1,0 +1,11 @@
+a, 
+a:visited {
+  color: $clr-lighter;
+  text-decoration: none;
+  @include transition(color, $global-transition-duration, ease-in-out);
+
+  &:hover, 
+  &:active {
+    color: $clr-dark;
+  }
+}

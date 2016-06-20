@@ -1,0 +1,184 @@
+.articles__container {
+  @include respond-to(tablet) {
+    padding-left: 15%;
+  }
+}
+
+.articles__year, 
+.articles__season {
+  position: relative;
+
+  @include respond-to(tablet){
+    &:before {
+      content: '';
+      display: block;
+      position: absolute;
+      top: -1px;
+      letter-spacing: 0.2em;
+      padding-top: 0.5em;
+    }
+  }
+}
+
+.articles__season {
+  @include respond-to(tablet) {
+    border-top: 1px solid $clr-lightest;
+
+    &:before {
+      left: -8.5%;
+      width: 8.5%;
+    }
+
+    &.summer:before {
+      content: 'SUM';
+      color: $clr-summer;
+      border-top: 1px solid $clr-summer;
+    }
+
+    &.spring:before {
+      content: 'SPR';
+      color: $clr-spring;
+      border-top: 1px solid $clr-spring;
+    }
+  }
+}
+
+.articles__year {
+  @include respond-to(tablet) {
+    &:before {
+      top: 0;
+      left: -17%;
+      width: 8.5%;
+      border-top: 1px solid $clr-highlight;
+      color: $clr-highlight;
+    }
+
+    &.twenty-fifteen:before {
+      content: '2015';
+    }
+  }
+}
+
+.article {
+  position: relative;
+  padding: 1em 0;
+  border-top: 1px solid $clr-lightest;
+
+  &--single {
+    border-top: 0;
+  }
+
+  @include respond-to(tablet) {
+    padding: 0;
+    margin-top: 1em;
+    border-top: 0;
+  }
+
+  &:last-of-type {
+    margin-bottom: 1em;
+  }
+
+  &__title {
+    position: relative;
+    display: inline-block;
+    font-size: 1.5em;
+    margin: 0;
+
+    &--single {
+      font-weight: bold;
+      margin-bottom: 0;
+    }
+
+    &:hover {
+      background-color: $clr-highlight;
+      transition: all, 0.25s, ease-in-out;
+      padding: 0 0.1em 0 0.25em;
+
+      a {
+        color: white;
+      }
+    }
+  }
+
+  &__blurb {
+
+    &--single {
+      margin-top: 0;
+      color: $clr-lightest;
+    }
+  }
+
+  &__type {
+    font-weight: bold;
+  }
+
+  &__date {
+    font-style: italic;
+    color: $clr-lightest;
+  }
+
+  @include respond-to(tablet) {
+    &__type, 
+    &__date {
+      position: absolute;
+      right: 0;
+    }
+
+    &__date {
+      top: 0;
+    }
+
+    &__type {
+      top: 1em;
+    }
+  }
+
+  &__content {
+    font-size: 1.25em;
+    line-height: 1.5;
+    color: $clr-light;
+
+    a {
+      border-bottom: 1px solid $clr-light;
+    }
+
+    iframe {
+      margin: 1em 0;
+    }
+
+    ul, 
+    ol {
+      list-style: initial;
+      margin: 1em 2em;
+      letter-spacing: -0.05em;
+
+      > li {
+        margin: 0.5em;
+
+        &:first-of-type {
+          margin-top: 0;
+        }
+
+        &:last-of-type {
+          margin-bottom: 0;
+        }
+      }
+    }
+
+    ol {
+      list-style: decimal;
+
+      ul {
+        margin: 0 1em;
+
+        > li {
+          margin: 0;
+        }
+      }
+    }
+  }
+}
+
+.article__footer {
+  margin: 1em 0;
+}

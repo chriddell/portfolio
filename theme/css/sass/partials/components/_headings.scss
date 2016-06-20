@@ -1,0 +1,32 @@
+.title {
+  line-height: 1.25;
+  margin-bottom: 0;
+
+  span {
+    font-size: 1.1em;
+  }
+
+  .section--hello & {
+    margin-bottom: 0.67em;
+    @include respond-to(tablet) {
+      width: 50%;
+    }
+  }
+}
+
+.subtitle {
+  color: $clr-lightest;
+  font-style: italic;
+  margin-top: 0;
+}
+
+.article__content {
+  h1, 
+  h2, 
+  h3, 
+  h4, 
+  h5 {
+    color: $clr-dark;
+    font-weight: bold;
+  }
+}

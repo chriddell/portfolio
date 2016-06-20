@@ -1,0 +1,49 @@
+// Config
+$global-box-sizing: true;
+
+// Fonts
+@font-face {
+  font-family: Klartext;
+  src: url('../fonts/klrtxt/medium.ttf');
+}
+
+@font-face {
+  font-family: Klartext;
+  src: url('../fonts/klrtxt/medium-italic.ttf');
+  font-style: italic;
+}
+
+// Breakpoints
+$breakpoints: (
+    'tablet'    : 640px,
+    'desktop'   : 980px
+);
+
+$tablet: 640px;
+$desktop: 980px;
+
+// Type
+$font-baseSize: 16px;
+$font-mainStack: 'Karla', 'Futura', 'Helvetica', sans-serif;
+$font-specialStack: 'Klartext', 'Georgia', sans-serif;
+
+// Colors
+$clr-dark: black;
+$clr-light: #6e6e6e;
+$clr-lighter: #949494;
+$clr-lightest: #aeaeae;
+$clr-highlight: #e75a4d;
+
+$twitter: #00aced;
+$github: #6cc644;
+$instagram: #9b6954;
+$tumblr: #32506d;
+$reddit: #cee3f8;
+$linkedin: #007bb5;
+$flickr: #ff0084;
+
+$clr-summer: #fbd526;
+$clr-spring: #5ab8a5;
+
+// Transitions
+$global-transition-duration: 0.25s;

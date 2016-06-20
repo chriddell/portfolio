@@ -1,0 +1,89 @@
+.example {
+  height: 100vh;
+  min-height: 800px;
+  position: relative;
+  overflow: hidden;
+
+  .container {
+    position: relative;
+    display: table;
+    height: 100%;
+  }
+
+  &__screenshot {
+    position: absolute;
+    right: -10%;
+    width: 50%;
+    top: 20%;
+    z-index: 2;
+    opacity: 0.5;
+    @include transition(opacity, $global-transition-duration, ease);
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+
+  &__info {
+    display: table-cell;
+    width: 100%;
+    vertical-align: middle;
+
+    @include respond-to(tablet) {
+      padding-right: 50%;
+    }
+  }
+
+  &__title {
+    margin-bottom: 0;
+    font-size: 2em;
+    text-transform: uppercase;
+  }
+
+  &__logo {
+    margin-top: 2em;
+    height: 150px;
+
+    img {
+      height: 100%;
+    }
+  }
+
+  &__bio {
+    margin-top: 1em;
+    font-size: 1.15em;
+  }
+
+  &__screenshot {
+    display: none;
+
+    @include respond-to(tablet) {
+      display: block;
+    }
+  }
+}
+
+@mixin exampleWebsite($client, $bgColor, $textColor, $highlightColor) {
+  .example--#{$client} {
+    background-color: $bgColor;
+    color: $textColor;
+ 
+    .example__url {
+      color: $highlightColor;
+      border-bottom: 1px solid $highlightColor;
+    }
+
+    .example__url:hover, 
+    .example__used {
+      color: darken($highlightColor, 20%);
+    }
+
+    .example__date:before {
+      background-color: $highlightColor;
+    }
+  }
+}
+
+@include exampleWebsite(well-fed, black, white, #5fa5d4);
+@include exampleWebsite(dana, #ccccff, white, darken(#ccccff, 25%));
+@include exampleWebsite(cex, white, black, $clr-highlight);

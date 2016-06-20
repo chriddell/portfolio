@@ -1,0 +1,18 @@
+p a i.fa {
+  margin-right: 0.25em;
+}
+
+// Mixin to create diff. colors for diff. social media links
+@mixin socialHover($company, $hex) {
+  a[href*='#{$company}']:before {
+    background: $hex;
+  }
+}
+
+@include socialHover(twitter, $twitter);
+@include socialHover(instagram, $instagram);
+@include socialHover(github, $github);
+@include socialHover(linkedin, $linkedin);
+@include socialHover(tumblr, $tumblr);
+@include socialHover(reddit, $reddit);
+@include socialHover(flickr, $flickr);
